@@ -6,7 +6,7 @@ class IntroPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Determine if the device is in landscape mode
+
     bool isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
@@ -23,11 +23,11 @@ class IntroPage extends StatelessWidget {
               child: Image.asset(
                 'lib/images/choc_coverimg1.png',
                 fit: BoxFit.contain,
-                height: screenHeight * 0.7, // Adjust height based on screen height
+                height: screenHeight * 0.7,
               ),
             ),
           ),
-          // Right: Text and Button Section
+
           Expanded(
             flex: 1,
             child: Column(
@@ -40,14 +40,14 @@ class IntroPage extends StatelessWidget {
                     "Discover the Finest Chocolates from Around the World",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 28, // Adjusted for landscape
+                      fontSize: 28,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Poppins',
                     ),
                   ),
                 ),
 
-                // Small Descriptive Text
+
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10.0),
                   child: Text(
@@ -61,7 +61,7 @@ class IntroPage extends StatelessWidget {
                   ),
                 ),
 
-                // "Get Started" Button
+
                 Padding(
                   padding: const EdgeInsets.all(24.0),
                   child: ElevatedButton(
@@ -138,7 +138,7 @@ class IntroPage extends StatelessWidget {
             ),
           ),
 
-          // "Get Started" Button
+
           Padding(
             padding: const EdgeInsets.all(24.0),
             child: ElevatedButton(

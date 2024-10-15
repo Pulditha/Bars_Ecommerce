@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart'; // Import HomePage for navigation after registration
+import 'home_page.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Determine if the device is in landscape mode
+
     bool isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      body: SingleChildScrollView( // Wrap the body in a SingleChildScrollView
+      body: SingleChildScrollView(
         child: isLandscape
             ? Row(
           children: [
@@ -21,8 +21,8 @@ class RegisterPage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: CircleAvatar(
-                  radius: screenHeight * 0.2, // Adjust radius based on screen height
-                  backgroundImage: AssetImage('lib/images/register_img.png'), // Replace with your image asset path
+                  radius: screenHeight * 0.2,
+                  backgroundImage: AssetImage('lib/images/register_img.png'),
                 ),
               ),
             ),
@@ -40,7 +40,7 @@ class RegisterPage extends StatelessWidget {
                       child: Text(
                         'REGISTER',
                         style: TextStyle(
-                          fontSize: 30.0, // Adjusted for landscape
+                          fontSize: 30.0,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Poppins',
                           color: const Color(0xFF77392C),
@@ -85,14 +85,14 @@ class RegisterPage extends StatelessWidget {
                     // Register Button
                     ElevatedButton(
                       onPressed: () {
-                        // Navigate to the HomePage when the button is pressed
+
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(builder: (context) => const HomePage()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF77392C), // Darker brown color
+                        backgroundColor: const Color(0xFF77392C),
                         padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -112,8 +112,8 @@ class RegisterPage extends StatelessWidget {
                     // Login link
                     GestureDetector(
                       onTap: () {
-                        // Navigate back to the Login page
-                        Navigator.pop(context); // Use pop to go back to the previous page
+
+                        Navigator.pop(context);
                       },
                       child: Text(
                         'Already have an account? Login',
@@ -140,7 +140,7 @@ class RegisterPage extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 40.0, top: 100.0),
                 child: CircleAvatar(
                   radius: 75, // Radius for portrait
-                  backgroundImage: AssetImage('lib/images/register_img.png'), // Replace with your image asset path
+                  backgroundImage: AssetImage('lib/images/register_img.png'),
                 ),
               ),
 
@@ -195,14 +195,14 @@ class RegisterPage extends StatelessWidget {
               // Register Button
               ElevatedButton(
                 onPressed: () {
-                  // Navigate to the HomePage when the button is pressed
+
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => const HomePage()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF77392C), // Darker brown color
+                  backgroundColor: const Color(0xFF77392C),
                   padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 15),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -222,8 +222,8 @@ class RegisterPage extends StatelessWidget {
               // Login link
               GestureDetector(
                 onTap: () {
-                  // Navigate back to the Login page
-                  Navigator.pop(context); // Use pop to go back to the previous page
+
+                  Navigator.pop(context);
                 },
                 child: Text(
                   'Already have an account? Login',

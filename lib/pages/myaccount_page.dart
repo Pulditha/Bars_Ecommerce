@@ -15,18 +15,18 @@ class MyAccountPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Image.asset(
-              'lib/images/logo.png', // Replace with your logo path
-              height: 40, // Adjust height as necessary
+              'lib/images/logo.png',
+              height: 40,
             ),
             const SizedBox(width: 8),
             const Text(
               'BARS',
-              style: TextStyle(color: Color(0xFF77392C)), // Brown color for the text
+              style: TextStyle(color: Color(0xFF77392C)),
             ),
           ],
         ),
         backgroundColor: Colors.white, // White AppBar
-        elevation: 0, // No shadow for the AppBar
+        elevation: 0,
         automaticallyImplyLeading: false,
       ),
       body: Padding(
@@ -35,18 +35,18 @@ class MyAccountPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // User Profile Section
+
               Center(
                 child: Column(
                   children: [
                     // Circular User Image
                     CircleAvatar(
-                      radius: 50, // Adjust radius as necessary
-                      backgroundImage: AssetImage('lib/images/login_img.png'), // Placeholder image
+                      radius: 50,
+                      backgroundImage: AssetImage('lib/images/login_img.png'),
                     ),
                     const SizedBox(height: 16),
                     const Text(
-                      'Welcome Pulditha!', // Placeholder username
+                      'Welcome Pulditha!',
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -55,7 +55,7 @@ class MyAccountPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 8),
                     const Text(
-                      'Pulditha@gmail.com', // Placeholder email
+                      'Pulditha@gmail.com',
                       style: TextStyle(fontSize: 16),
                     ),
                   ],
@@ -81,28 +81,28 @@ class MyAccountPage extends StatelessWidget {
                 title: const Text('Change Password'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
-                  // Implement change password functionality
+
                 },
               ),
               ListTile(
                 title: const Text('Payment Methods'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
-                  // Implement payment methods functionality
+
                 },
               ),
               ListTile(
                 title: const Text('Order History'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
-                  // Implement order history functionality
+
                 },
               ),
               ListTile(
                 title: const Text('Logout'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
-                  // Implement logout functionality
+
                 },
               ),
             ],
@@ -130,9 +130,9 @@ class MyAccountPage extends StatelessWidget {
             label: 'My Account',
           ),
         ],
-        currentIndex: 3, // Set 'My Account' as the active page
-        selectedItemColor: const Color(0xFF77392C), // Brown selected icon color
-        unselectedItemColor: Colors.grey, // Grey for unselected items
+        currentIndex: 3,
+        selectedItemColor: const Color(0xFF77392C),
+        unselectedItemColor: Colors.grey,
     onTap: (index) {
     if (index == 0) {
     Navigator.pushReplacement(

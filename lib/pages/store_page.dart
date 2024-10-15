@@ -13,9 +13,9 @@ class Product {
 }
 
 class StorePage extends StatelessWidget {
-  StorePage({Key? key}) : super(key: key); // Removed 'const' keyword here
+  StorePage({Key? key}) : super(key: key);
 
-  // Define a list of products
+
   final List<Product> products = [
     Product(name: 'Cadbury Dairy Milk', imagePath: 'lib/images/cadbury milk chocolate.jpeg', price: 150),
     Product(name: 'Cadbury Dark Chocolate', imagePath: 'lib/images/cadbury royal dark chocolate.jpg', price: 200),
@@ -32,19 +32,19 @@ class StorePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Image.asset(
-              'lib/images/logo.png', // Replace with your logo path
-              height: 40, // Adjust height as necessary
+              'lib/images/logo.png',
+              height: 40,
             ),
             const SizedBox(width: 8),
             const Text(
               'BARS',
-              style: TextStyle(color: Color(0xFF77392C)), // Brown color for the text
+              style: TextStyle(color: Color(0xFF77392C)),
             ),
           ],
         ),
-        backgroundColor: Colors.white, // White AppBar
-        elevation: 0, // No shadow for the AppBar
-        automaticallyImplyLeading: false, // Remove the back button
+        backgroundColor: Colors.white,
+        elevation: 0,
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -52,10 +52,10 @@ class StorePage extends StatelessWidget {
           children: [
             // Hero Section
             Container(
-              color: const Color(0xFF77392C), // Brown background
+              color: const Color(0xFF77392C),
               padding: const EdgeInsets.all(20.0),
-              width: double.infinity, // Cover full width
-              height: 200, // Increased height for the hero section
+              width: double.infinity,
+              height: 200,
               child: Column(
                 children: const [
                   Text(
@@ -98,7 +98,7 @@ class StorePage extends StatelessWidget {
                 const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
-                    // Implement search action here
+
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF77392C), // Brown color for the button
@@ -115,7 +115,7 @@ class StorePage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
 
-            // Best Selling Products Section
+
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: const Text(
@@ -129,21 +129,21 @@ class StorePage extends StatelessWidget {
             ),
             const SizedBox(height: 10),
 
-            // Render the product grid
+
             _buildProductGrid(),
           ],
         ),
       ),
 
-      // Floating Action Button for Cart
+
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/cart'); // Navigate to CartPage
+          Navigator.pushNamed(context, '/cart');
         },
-        backgroundColor: const Color(0xFF77392C), // Brown color
+        backgroundColor: const Color(0xFF77392C),
         child: const Icon(
           Icons.shopping_cart,
-          color: Colors.white, // White icon regardless of the theme
+          color: Colors.white,
         ),
       ),
 
@@ -167,24 +167,24 @@ class StorePage extends StatelessWidget {
             label: 'My Account',
           ),
         ],
-        currentIndex: 1, // Set 'Store' as the active page
-        selectedItemColor: const Color(0xFF77392C), // Brown selected icon color
-        unselectedItemColor: Colors.grey, // Grey for unselected items
+        currentIndex: 1,
+        selectedItemColor: const Color(0xFF77392C),
+        unselectedItemColor: Colors.grey,
         onTap: (index) {
           if (index == 0) {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => const HomePage()), // Navigate to HomePage
+              MaterialPageRoute(builder: (context) => const HomePage()),
             );
           } else if (index == 2) {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => const AboutUsPage()), // Navigate to AboutUsPage
+              MaterialPageRoute(builder: (context) => const AboutUsPage()),
             );
           } else if (index == 3) {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => const MyAccountPage()), // Navigate to MyAccountPage
+              MaterialPageRoute(builder: (context) => const MyAccountPage()),
             );
           }
         },
@@ -192,7 +192,7 @@ class StorePage extends StatelessWidget {
     );
   }
 
-  // Helper method to build product cards
+
   Widget _buildProductCard(BuildContext context, Product product) {
     return Card(
       elevation: 4,
@@ -225,7 +225,7 @@ class StorePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 8.0),
             child: Text(
-              'RS ${product.price}', // Use the product's price
+              'RS ${product.price}',
               style: const TextStyle(
                 fontSize: 14,
                 color: Colors.green,
@@ -237,11 +237,11 @@ class StorePage extends StatelessWidget {
     );
   }
 
-  // Helper method to build a product grid
+
   Widget _buildProductGrid() {
     return GridView.builder(
       shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(), // Prevent scrolling within the grid
+      physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2, // Two columns
         childAspectRatio: 0.6, // Aspect ratio for cards
@@ -250,7 +250,7 @@ class StorePage extends StatelessWidget {
       ),
       itemCount: products.length, // Total number of products
       itemBuilder: (context, index) {
-        return _buildProductCard(context, products[index]); // Pass the product to the card
+        return _buildProductCard(context, products[index]);
       },
     );
   }

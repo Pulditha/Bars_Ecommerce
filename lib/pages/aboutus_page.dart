@@ -18,7 +18,7 @@ class _AboutUsPageState extends State<AboutUsPage> with SingleTickerProviderStat
   void initState() {
     super.initState();
 
-    // Initialize the animation controller and animations
+
     _controller = AnimationController(
       duration: const Duration(seconds: 1),
       vsync: this,
@@ -48,18 +48,18 @@ class _AboutUsPageState extends State<AboutUsPage> with SingleTickerProviderStat
           children: [
             Image.asset(
               'lib/images/logo.png', // Path to the logo image
-              height: 40, // Set the desired height for the logo
+              height: 40,
             ),
             const SizedBox(width: 8),
             const Text(
               'BARS',
-              style: TextStyle(color: Color(0xFF77392C)), // Brown color for the text
+              style: TextStyle(color: Color(0xFF77392C)),
             ),
           ],
         ),
-        backgroundColor: Colors.white, // White AppBar
-        elevation: 0, // No shadow for the AppBar
-        automaticallyImplyLeading: false, // Remove the back button
+        backgroundColor: Colors.white,
+        elevation: 0,
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: FadeTransition(
@@ -67,11 +67,11 @@ class _AboutUsPageState extends State<AboutUsPage> with SingleTickerProviderStat
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-                // Hero Image with Overlay
+
                 Stack(
                   children: [
                     Image.asset(
-                      'lib/images/choc_coverimg1.png', // Replace with your hero image path
+                      'lib/images/choc_coverimg1.png',
                       width: double.infinity,
                       height: 250,
                       fit: BoxFit.cover,
@@ -97,7 +97,7 @@ class _AboutUsPageState extends State<AboutUsPage> with SingleTickerProviderStat
                 ),
               const SizedBox(height: 20),
 
-              // Rest of the page content with sections after the hero image
+
               _buildSectionWithIcon(
                 title: 'Mission',
                 content: 'Our mission is to create happiness with every bite.',
@@ -146,24 +146,24 @@ class _AboutUsPageState extends State<AboutUsPage> with SingleTickerProviderStat
             label: 'My Account',
           ),
         ],
-        currentIndex: 2, // Set 'About Us' as the active page
-        selectedItemColor: const Color(0xFF77392C), // Brown selected icon color
-        unselectedItemColor: Colors.grey, // Grey for unselected items
+        currentIndex: 2,
+        selectedItemColor: const Color(0xFF77392C),
+        unselectedItemColor: Colors.grey,
         onTap: (index) {
           if (index == 0) {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => const HomePage()), // Navigate to HomePage
+              MaterialPageRoute(builder: (context) => const HomePage()),
             );
           } else if (index == 1) {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) =>  StorePage()), // Navigate to StorePage
+              MaterialPageRoute(builder: (context) =>  StorePage()),
             );
           } else if (index == 3) {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => const MyAccountPage()), // Navigate to MyAccountPage
+              MaterialPageRoute(builder: (context) => const MyAccountPage()),
             );
           }
         },
@@ -171,7 +171,7 @@ class _AboutUsPageState extends State<AboutUsPage> with SingleTickerProviderStat
     );
   }
 
-  // Helper method to build each section with an icon and animation
+
   Widget _buildSectionWithIcon({required String title, required String content, required IconData icon}) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -196,7 +196,7 @@ class _AboutUsPageState extends State<AboutUsPage> with SingleTickerProviderStat
               Icon(
                 icon,
                 size: 40,
-                color: const Color(0xFF77392C), // Brown color for icons
+                color: const Color(0xFF77392C),
               ),
               const SizedBox(width: 16),
               Expanded(
@@ -226,7 +226,7 @@ class _AboutUsPageState extends State<AboutUsPage> with SingleTickerProviderStat
     );
   }
 
-  // Helper method to build an expandable section
+
   Widget _buildExpansionTileSection({required String title, required String content, required IconData icon}) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -248,7 +248,7 @@ class _AboutUsPageState extends State<AboutUsPage> with SingleTickerProviderStat
           leading: Icon(
             icon,
             size: 40,
-            color: const Color(0xFF77392C), // Brown color for icons
+            color: const Color(0xFF77392C),
           ),
           title: Text(
             title,

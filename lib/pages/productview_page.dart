@@ -7,22 +7,22 @@ class ProductViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white, // White AppBar
-        iconTheme: const IconThemeData(color: Color(0xFF77392C)), // Set icon color
+        backgroundColor: Colors.white,
+        iconTheme: const IconThemeData(color: Color(0xFF77392C)),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: [
                 Image.asset(
-                  'lib/images/logo.png', // Replace with your logo path
-                  height: 40, // Adjust height as necessary
+                  'lib/images/logo.png',
+                  height: 40,
                 ),
                 const SizedBox(width: 8),
                 const Text(
                   'BARS',
                   style: TextStyle(
-                    color: Color(0xFF77392C), // Brown color for the text
+                    color: Color(0xFF77392C),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -34,7 +34,7 @@ class ProductViewPage extends StatelessWidget {
 
       body: LayoutBuilder(
         builder: (context, constraints) {
-          double imageHeight = constraints.maxWidth > 600 ? 350 : 250; // Adjust image height for larger screens
+          double imageHeight = constraints.maxWidth > 600 ? 350 : 250;
           double padding = constraints.maxWidth > 600 ? 24.0 : 16.0;
 
           return SingleChildScrollView(
@@ -42,7 +42,7 @@ class ProductViewPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Breadcrumb navigation
+
                 const Text(
                   'Home > Store > Milk Chocolate > Cadbury Dairy Milk',
                   style: TextStyle(
@@ -110,7 +110,7 @@ class ProductViewPage extends StatelessWidget {
                 // Add to Cart Button
                 ElevatedButton(
                   onPressed: () {
-                    // Add functionality to add product to cart
+
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF77392C),
@@ -152,8 +152,8 @@ class ProductViewPage extends StatelessWidget {
             label: 'My Account',
           ),
         ],
-        currentIndex: 1, // Adjust this based on the active page
-        selectedItemColor: const Color(0xFF77392C), // Brown selected icon color
+        currentIndex: 1,
+        selectedItemColor: const Color(0xFF77392C),
         unselectedItemColor: Colors.grey, // Grey for unselected items
         onTap: (index) {
           if (index == 0) {
@@ -176,7 +176,7 @@ class ProductViewPage extends StatelessWidget {
         backgroundColor: const Color(0xFF77392C), // Brown color
         child: const Icon(
           Icons.shopping_cart,
-          color: Colors.white, // White icon regardless of the theme
+          color: Colors.white,
         ),
       ),
     );

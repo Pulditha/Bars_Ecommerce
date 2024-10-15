@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool isDarkMode = false; // State for light/dark mode
+  bool isDarkMode = false;
 
   final List<Map<String, String>> products = [
     {
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Image.asset(
                     'lib/images/logo.png',
-                    height: 40, // Adjust height as necessary
+                    height: 40,
                   ),
                   const SizedBox(width: 8),
                   const Text(
@@ -103,10 +103,10 @@ class _HomePageState extends State<HomePage> {
           ),
           centerTitle: true,
         ),
-        body: SingleChildScrollView( // Enable scrolling
+        body: SingleChildScrollView(
           child: Column(
             children: [
-              // Upper section with background image and overlay
+
               Container(
                 height: screenSize.height * 0.4, 
                 child: Stack(
@@ -114,13 +114,13 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('lib/images/Choc_1.png'), // Replace with your background image path
+                          image: AssetImage('lib/images/Choc_1.png'),
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
                     Container(
-                      color: Colors.brown.withOpacity(0.5), // Brown overlay
+                      color: Colors.brown.withOpacity(0.5),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(24.0),
@@ -164,9 +164,8 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              // Lower section with background based on the theme (white for light mode, black for dark mode)
               Container(
-                color: isDarkMode ? Colors.black : Colors.white, // Set background color based on the mode
+                color: isDarkMode ? Colors.black : Colors.white,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -179,8 +178,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                     GridView.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: isLandscape ? 3 : 2, // 3 columns in landscape, 2 in portrait
-                        childAspectRatio: 0.75, // Adjust aspect ratio to control card height/width
+                        crossAxisCount: isLandscape ? 3 : 2,
+                        childAspectRatio: 0.75,
                         crossAxisSpacing: 16.0,
                         mainAxisSpacing: 16.0,
                       ),
@@ -202,14 +201,14 @@ class _HomePageState extends State<HomePage> {
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             elevation: 4,
-                            color: isDarkMode ? Colors.grey[850] : Colors.white, // Card color based on the mode
+                            color: isDarkMode ? Colors.grey[850] : Colors.white,
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
                                   AspectRatio(
-                                    aspectRatio: 1, // Make the image square
+                                    aspectRatio: 1,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(12.0),
                                       child: Image.asset(
@@ -225,7 +224,7 @@ class _HomePageState extends State<HomePage> {
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'Poppins',
-                                      color: isDarkMode ? Colors.white : Colors.black, // Text color based on the mode
+                                      color: isDarkMode ? Colors.white : Colors.black
                                     ),
                                     textAlign: TextAlign.center,
                                   ),

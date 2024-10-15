@@ -7,7 +7,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Determine if the device is in landscape mode
+
     bool isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
@@ -16,18 +16,18 @@ class LoginPage extends StatelessWidget {
       body: isLandscape
           ? Row(
         children: [
-          // Left: Image Section
+
           Expanded(
             flex: 1,
             child: Padding(
               padding: const EdgeInsets.all(24.0),
               child: CircleAvatar(
-                radius: screenHeight * 0.2, // Adjust radius based on screen height
+                radius: screenHeight * 0.2,
                 backgroundImage: AssetImage('lib/images/login_img.png'),
               ),
             ),
           ),
-          // Right: Login Form Section
+
           Expanded(
             flex: 1,
             child: Padding(
@@ -41,7 +41,7 @@ class LoginPage extends StatelessWidget {
                     child: Text(
                       'LOGIN',
                       style: TextStyle(
-                        fontSize: 30.0, // Adjusted for landscape
+                        fontSize: 30.0,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Poppins',
                         color: const Color(0xFF77392C),
@@ -75,7 +75,7 @@ class LoginPage extends StatelessWidget {
                   // Login Button
                   ElevatedButton(
                     onPressed: () {
-                      // Navigate to the HomePage when the button is pressed
+                      // HomePage
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const HomePage()),
@@ -102,7 +102,7 @@ class LoginPage extends StatelessWidget {
                   // Register Link
                   GestureDetector(
                     onTap: () {
-                      // Navigate to the Register page
+                     // Register page
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const RegisterPage()),
@@ -133,7 +133,7 @@ class LoginPage extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 40.0, top: 100.0),
               child: CircleAvatar(
                 radius: 75, // Radius for portrait
-                backgroundImage: AssetImage('lib/images/login_img.png'), // Replace with your image asset path
+                backgroundImage: AssetImage('lib/images/login_img.png'),
               ),
             ),
 
@@ -177,7 +177,7 @@ class LoginPage extends StatelessWidget {
             // Login Button
             ElevatedButton(
               onPressed: () {
-                // Navigate to the HomePage when the button is pressed
+                //  HomePage
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const HomePage()),
@@ -204,7 +204,7 @@ class LoginPage extends StatelessWidget {
             // Register Link
             GestureDetector(
               onTap: () {
-                // Navigate to the Register page
+                //  Register page
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const RegisterPage()),
