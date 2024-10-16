@@ -42,7 +42,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // Get screen dimensions and orientation
     final Size screenSize = MediaQuery.of(context).size;
-    final bool isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
 
     return MaterialApp(
       theme: isDarkMode
@@ -103,12 +102,11 @@ class _HomePageState extends State<HomePage> {
           ),
           centerTitle: true,
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-
-              Container(
-                height: screenSize.height * 0.4, 
+        body: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Container(
+                height: screenSize.height * 0.4,
                 child: Stack(
                   children: [
                     Container(
@@ -164,85 +162,77 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              Container(
+            ),
+            SliverToBoxAdapter(
+              child: Container(
                 color: isDarkMode ? Colors.black : Colors.white,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.all(16.0),
-                      child: Text(
-                        'Best Selling Products',
-                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: isLandscape ? 3 : 2,
-                        childAspectRatio: 0.75,
-                        crossAxisSpacing: 16.0,
-                        mainAxisSpacing: 16.0,
-                      ),
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      itemCount: products.length,
-                      shrinkWrap: true, // Wrap in a scrollable view
-                      physics: const NeverScrollableScrollPhysics(), // Disable grid scrolling
-                      itemBuilder: (context, index) {
-                        final product = products[index];
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const ProductViewPage()),
-                            );
-                          },
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            elevation: 4,
-                            color: isDarkMode ? Colors.grey[850] : Colors.white,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  AspectRatio(
-                                    aspectRatio: 1,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(12.0),
-                                      child: Image.asset(
-                                        product['image']!,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    product['name']!,
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'Poppins',
-                                      color: isDarkMode ? Colors.white : Colors.black
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  const SizedBox(height: 4),
-                                ],
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
+                child: const Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
+                    'Best Selling Products',
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
-            ],
-          ),
+            ),
+            SliverToBoxAdapter(
+              child: Container(
+                height: 200, // Increased height for the horizontal list
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: products.length,
+                  itemBuilder: (context, index) {
+                    final product = products[index];
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const ProductViewPage()),
+                        );
+                      },
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        elevation: 4,
+                        color: isDarkMode ? Colors.grey[850] : Colors.white,
+                        margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0), // Increased padding for better spacing
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(12.0),
+                                child: Image.asset(
+                                  product['image']!,
+                                  fit: BoxFit.cover,
+                                  height: 120, // Increased height for the images
+                                  width: 120, // Increased width for the images
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                product['name']!,
+                                style: TextStyle(
+                                  fontSize: 18, // Increased font size for the product name
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Poppins',
+                                  color: isDarkMode ? Colors.white : Colors.black,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ],
         ),
-        // Floating action button
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(
